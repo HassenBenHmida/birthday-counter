@@ -3,20 +3,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 export default class DateForm extends Component {
-    state = {
-        startDate: new Date()
-    };
      
     handleChange = date => {
-        this.setState({
-            startDate: date
-        });
+        this.props.selectBirthday(date);
     };
      
     render() {
         return (
           <DatePicker
-            selected={this.state.startDate}
+            selected={this.props.birthday}
             onChange={this.handleChange}
           />
         );

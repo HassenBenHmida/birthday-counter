@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class DateForm extends Component {
      
     handleChange = date => {
+        console.log(date)
         this.props.selectBirthday(date);
     };
      
@@ -12,7 +13,11 @@ export default class DateForm extends Component {
         return (
           <DatePicker
             selected={this.props.birthday}
+            maxDate={new Date()}
+            placeholderText={this.props.placeholder}
+            dateFormat="MMMM d, yyyy"
             onChange={this.handleChange}
+            className="picker-input"
           />
         );
     }
